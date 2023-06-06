@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-            label 't056-runner'
+            label 't057-runner'
         }
     }
 
