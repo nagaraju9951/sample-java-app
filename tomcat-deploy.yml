@@ -2,7 +2,7 @@
   hosts: tomcat
   become: yes
   vars:
-    war_file: /opt/jenkins/workspace/VisOps/t056/sample-java-app/deploy-on-tomcat/target/HelloWorld.war  
+    war_file: /opt/jenkins/workspace/VisOps/t057/sample-java-app/deploy-on-tomcat/target/HelloWorld.war  
 
   tasks:
     - name: Copy WAR file from Jenkins to Tomcat server

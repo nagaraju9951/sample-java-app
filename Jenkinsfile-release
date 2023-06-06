@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-            label 't056-runner'
+            label 't057-runner'
         }
     }
 
@@ -9,14 +9,14 @@ pipeline {
         stage('Tag and Push to Docker Hub') {
             steps {
                 script {
-                    def remoteServer = '3.80.136.160'
+                    def remoteServer = '3.80.61.36'
                     def remoteUser = 'ubuntu'
                     def remoteDockerImage = 'tomcat'
-                    def imageName = "pavanmohan/promote-release:${env.BUILD_NUMBER}"
-                    def latestImageName = "pavanmohan/promote-release:latest"
+                    def imageName = "nagarajusatyala/promote-release:${env.BUILD_NUMBER}"
+                    def latestImageName = "nagarajusatyala/promote-release:latest"
 
                     withCredentials([
-                        usernamePassword(credentialsId: 'dockerhubcreds', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')
+                        usernamePassword(credentialsId: 't57-new', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')
                     ]) {
                         sshagent(credentials: ['ssh-key-creds']) {
                             sh """

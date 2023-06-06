@@ -1,14 +1,14 @@
 pipeline {
     agent {
         node {
-            label 't056-runner'
+            label 't057-runner'
         }
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git credentialsId: 'ca-git-access', branch: 'development', url: "https://git.cloudavise.com/visops/t056/sample-java-app.git"
+                git credentialsId: 'ca-git-access', branch: 'development', url: "https://git.cloudavise.com/visops/t057/sample-java-app.git"
             }
         }
 
