@@ -9,6 +9,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git credentialsId: 'ca-git-access', branch: 'develop-on-tomcat)', url: "https://git.cloudavise.com/visops/t057/sample-java-app.git"
+            }
         }
 
         stage('Build') {
@@ -25,11 +26,11 @@ pipeline {
                 sh "./deploy_script.sh tomcat-prepare"
             }
         }
+        
         stage('deploy') {
             steps {
                 sh "./deploy_script.sh tomcat-deploy"
             }
         }
     }
-}
 }
