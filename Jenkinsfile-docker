@@ -9,6 +9,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git credentialsId: 'ca-git-access', branch: 'develop-on-tomcat', url: "https://git.cloudavise.com/visops/t057/sample-java-app.git"
+        
             }
         }
 
@@ -20,8 +21,8 @@ pipeline {
 
         stage('prepare') {
             steps {
-                sh "ansible-vault decrypt --vault-id /tmp/vault-id demo.pem"
-                sh "chmod 400 demo.pem"
+                sh "ansible-vault decrypt --vault-id /tmp/vault_id demokey.pem"
+                sh "chmod 400 demokey.pem"
                 sh "chmod +x deploy_script.sh"
                 sh "./deploy_script.sh docker-prepare"
             }
