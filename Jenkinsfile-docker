@@ -21,7 +21,7 @@ pipeline {
 
         stage('prepare') {
             steps {
-                sh "ansible-vault decrypt --vault-id /tmp/naga-vault-id demokey.pem"
+                sh "ansible-vault decrypt --vault-id /home/ubuntu/naga-vault-id demokey.pem"
                 sh "chmod 400 demokey.pem"
                 sh "chmod +x deploy_script.sh"
                 sh "./deploy_script.sh docker-prepare"
