@@ -9,7 +9,7 @@ pipeline {
         stage('Tag and Push image to Docker Hub') {
             steps {
                 script {
-                    def remoteServer = '3.80.28.214'
+                    def remoteServer = '3.95.174.17'
                     def remoteUser = 'ubuntu'
                     def remoteDockerImage = 'tomcat'
                     def imageName = "nagarajusatyala/promote-release:${env.BUILD_NUMBER}"
