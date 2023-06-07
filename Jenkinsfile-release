@@ -9,7 +9,7 @@ pipeline {
         stage('Tag and Push image to Docker Hub') {
             steps {
                 script {
-                    def remoteServer = '3.80.61.36'
+                    def remoteServer = '3.80.28.214'
                     def remoteUser = 'ubuntu'
                     def remoteDockerImage = 'tomcat'
                     def imageName = "nagarajusatyala/promote-release:${env.BUILD_NUMBER}"
@@ -17,7 +17,7 @@ pipeline {
 
                     withCredentials([
                         usernamePassword(credentialsId: 't57-new', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
-                        sshagent(credentials: ['ssh-key-creds']) {
+                        sshagent(credentials: ['t057-ssh']) {
                             sh """
                                 ssh -o StrictHostKeyChecking=no -l ${remoteUser} ${remoteServer} 'docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD &&
                                 docker tag ${remoteDockerImage}:v1 ${imageName} &&
