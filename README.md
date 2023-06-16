@@ -15,14 +15,14 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ```
 cd existing_repo
-git remote add origin https://git.cloudavise.com/visops/t057/sample-java-app.git
+git remote add origin https://git.cloudavise.com/visops/t056/sample-java-app.git
 git branch -M master
 git push -uf origin master
 ```
 
 ## Integrate with your tools
 
-- [ ] [Set up project integrations](https://git.cloudavise.com/visops/t057/sample-java-app/-/settings/integrations)
+- [ ] [Set up project integrations](https://git.cloudavise.com/visops/t056/sample-java-app/-/settings/integrations)
 
 ## Collaborate with your team
 

@@ -1,0 +1,35 @@
+pipeline {
+    agent {
+        node {
+            label 't057-runner'
+        }
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git credentialsId: 'ca-git-access', branch: 'develop-on-tomcat', url: "https://git.cloudavise.com/visops/t057/sample-java-app.git"
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'mvn clean install'
+            }
+        }
+
+        stage('prepare') {
+            steps {
+                sh "ansible-vault decrypt --vault-id /home/ubuntump/naga-vault-id demokey.pem"
+                sh "chmod 400 demokey.pem"
+                sh "chmod +x deploy_script.sh"
+                sh "./deploy_script.sh tomcat-prepare"
+            }
+        }
+        stage('deploy') {
+            steps {
+                sh "./deploy_script.sh tomcat-deploy"
+            }
+        }
+    }
+}
